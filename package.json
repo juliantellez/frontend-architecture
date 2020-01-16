@@ -1,0 +1,22 @@
+{
+  "name": "frontend-architecture",
+  "version": "0.0.1",
+  "description": "proposed frontend architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "@types/react": "^16.9.17",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0",
+    "typescript": "^3.7.5"
+  }
+}
