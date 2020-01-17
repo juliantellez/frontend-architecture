@@ -1,5 +1,6 @@
 import { Subscription } from "rxjs";
 import { filter } from "rxjs/operators";
+import * as uuid from "uuid";
 
 import IUiContext from "../../../Ui/Shared/Interfaces/IUiContext";
 
@@ -13,11 +14,14 @@ const connectTodoSubscriptions = (
 ): Subscription[] => {
   return [
     ui.uiEvent$
-      .pipe(filter(({ type }) => type === UIEventCustom.ON_CLICK_TODO_CREATE))
-      .subscribe(() => {
+      .pipe(
+        filter(({ type }) => type === UIEventCustom.TODO_SUBMIT),
+        filter(({ event }) => Boolean(event.todo))
+      )
+      .subscribe(({ event }) => {
         state.TODO.actions.addTodo({
-          id: Math.random().toString(),
-          content: "hello",
+          id: uuid.v4(),
+          content: event.todo,
           status: TodoItemStatus.OPEN
         });
       })

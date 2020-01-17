@@ -4,9 +4,12 @@
   "description": "proposed frontend architecture",
   "main": "index.js",
   "scripts": {
+    "types:sass": "rm -rf **/*.scss.d.ts && tsm src --camelCase",
+    "types:sass:watch": "npm run types:sass -- --watch",
     "start": "TS_NODE_PROJECT=tsconfig.json webpack-dev-server --env.NODE_ENV=development --config ./config/webpack/webpack.config.ts",
-    "build": "TS_NODE_PROJECT=tsconfig.json webpack --env.NODE_ENV=production --config ./config/webpack/webpack.config.ts",
-    "build:analyze": "TS_NODE_PROJECT=tsconfig.json webpack ---env.analyze --env.NODE_ENV=production --config ./config/webpack/webpack.config.ts"
+    "dev": "npm run types:sass:watch | npm run start",
+    "build": "rm -rf dist && npm run types:sass && TS_NODE_PROJECT=tsconfig.json webpack --env.NODE_ENV=production --config ./config/webpack/webpack.config.ts",
+    "build:analyze": "rm -rf dist && npm run types:sass && TS_NODE_PROJECT=tsconfig.json webpack ---env.analyze --env.NODE_ENV=production --config ./config/webpack/webpack.config.ts"
   },
   "dependencies": {
     "react": "^16.12.0",
@@ -27,6 +30,7 @@
     "@types/node": "^13.1.7",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "@types/uuid": "^3.4.6",
     "@types/webpack": "^4.41.2",
     "@types/webpack-bundle-analyzer": "^2.13.3",
     "@types/webpack-dev-server": "^3.9.0",
@@ -36,11 +40,14 @@
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^7.0.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.2",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
+    "typed-scss-modules": "^1.0.1",
     "typescript": "^3.7.5",
+    "uuid": "^3.4.0",
     "webpack": "^4.41.5",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",

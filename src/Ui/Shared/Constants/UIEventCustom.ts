@@ -1,5 +1,5 @@
 enum UIEventCustom {
-  ON_CLICK_TODO_CREATE = "ON_CLICK_TODO_CREATE"
+  TODO_SUBMIT = "TODO_SUBMIT"
 }
 
 export default UIEventCustom;

@@ -2,7 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import TodoList from "./Routes/Todo/Components/TodoList";
-import TodoPad from "./Routes/Todo/Components/TodoPad";
+import TodoForm from "./Routes/Todo/Components/TodoForm/TodoForm";
+
 import connectSubscriptions from "../State/connectSubscriptions";
 import StateContext from "../State/Shared/StateContext";
 import UiContext from "./Shared/UiContext";
@@ -17,7 +18,7 @@ const App = () => {
 
   return (
     <main>
-      <TodoPad />
+      <TodoForm />
       <TodoList />
     </main>
   );

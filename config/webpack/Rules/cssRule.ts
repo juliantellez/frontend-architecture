@@ -7,10 +7,11 @@ const cssRule: Rule = {
     {
       loader: "css-loader",
       options: {
-        modules: true,
+        modules: {
+          localIdentName: "[name]___[local]___[hash:base64:5]"
+        },
         importLoaders: 1,
-        localIdentName: "[name]___[local]___[hash:base64:5]",
-        camelCase: true,
+        localsConvention: "camelCase",
         url: true,
         import: true
       }
