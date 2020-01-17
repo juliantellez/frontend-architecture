@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import useObservable from "../../../../State/Shared/Hooks/useObservable";
-import StateContext from "../../../../State/Shared/StateContext";
+import useObservable from "../../../../../State/Shared/Hooks/useObservable";
+import StateContext from "../../../../../State/Shared/StateContext";
 
 const TodoList = () => {
   const { TODO } = React.useContext(StateContext);
