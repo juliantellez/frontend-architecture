@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import createState from "./createState";
+import createState from "../createState";
 
 const state = createState();
 

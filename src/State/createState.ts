@@ -3,7 +3,6 @@ import Stores from "./Shared/Constants/Stores";
 
 import Todo from "./Stores/Todo/Models/Todo";
 import createTodoActions from "./Stores/Todo/Actions/createTodoActions";
-import connectSubscriptions from "./connectSubscriptions";
 import IState from "./Shared/Interfaces/IState";
 
 const createState = () => {
@@ -14,8 +13,6 @@ const createState = () => {
       actions: createTodoActions,
     })
   };
-
-  connectSubscriptions(state);
 
   return state;
 };
