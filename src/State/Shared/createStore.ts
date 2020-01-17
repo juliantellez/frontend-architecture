@@ -1,25 +1,14 @@
 import { BehaviorSubject } from "rxjs";
 
-import Stores from "./Contants/Stores";
-
-type INewable<T> = new (...args: any[]) => T;
-
-interface ICreateStore<Model, Actions> {
-  name: Stores;
-  model: INewable<Model>;
-  actions: (
-    observable: BehaviorSubject<Model>,
-    getState: () => Model
-  ) => Actions;
-  initialState?: Model;
-}
+import ICreateStore from "./Interfaces/ICreateStore";
+import IStore from "./Interfaces/IStore";
 
 const createStore = <Model, Actions>({
   name,
   model,
   actions,
   initialState = new model()
-}: ICreateStore<Model, Actions>) => {
+}: ICreateStore<Model, Actions>): IStore<Model, Actions> => {
   const observable = new BehaviorSubject(initialState);
 
   let currentState = initialState;
