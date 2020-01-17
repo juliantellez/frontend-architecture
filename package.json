@@ -4,8 +4,9 @@
   "description": "proposed frontend architecture",
   "main": "index.js",
   "scripts": {
-    "start": "TS_NODE_PROJECT=tsconfig.json webpack-dev-server --config ./config/webpack/webpack.config.ts",
-    "build": "TS_NODE_PROJECT=tsconfig.json webpack --config ./config/webpack/webpack.config.ts"
+    "start": "TS_NODE_PROJECT=tsconfig.json webpack-dev-server --env.NODE_ENV=development --config ./config/webpack/webpack.config.ts",
+    "build": "TS_NODE_PROJECT=tsconfig.json webpack --env.NODE_ENV=production --config ./config/webpack/webpack.config.ts",
+    "build:analyze": "TS_NODE_PROJECT=tsconfig.json webpack ---env.analyze --env.NODE_ENV=production --config ./config/webpack/webpack.config.ts"
   },
   "dependencies": {
     "react": "^16.12.0",
@@ -27,6 +28,7 @@
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/webpack": "^4.41.2",
+    "@types/webpack-bundle-analyzer": "^2.13.3",
     "@types/webpack-dev-server": "^3.9.0",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
@@ -40,6 +42,7 @@
     "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   }

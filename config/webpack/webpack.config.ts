@@ -1,19 +1,20 @@
 import * as path from "path";
-import * as CopyWebpackPlugin from "copy-webpack-plugin";
-import * as HtmlWebpackPlugin from "html-webpack-plugin";
 import { Configuration } from "webpack";
+
+import IEnv from "../Interfaces/IEnv";
 
 import jsRule from "./Rules/jsRule";
 import cssRule from "./Rules/cssRule";
+import createWebpackPluginsArray from "./createPluginsArray";
 
 const PATH_ROOT = path.resolve(__dirname, "..", "..");
 const PATH_SRC = path.resolve(PATH_ROOT, "src", "main");
 const PATH_BUILD = path.resolve(PATH_ROOT, "dist");
 
-const createWebpackConfig = (): Configuration => {
+const createWebpackConfig = (env: IEnv): Configuration => {
   return {
-    mode: "development",
-    devtool: "inline-source-map",
+    mode: env.NODE_ENV,
+    devtool: env.NODE_ENV === "production" ? "source-map" : "inline-source-map",
     entry: PATH_SRC,
     output: {
       path: PATH_BUILD,
@@ -25,17 +26,17 @@ const createWebpackConfig = (): Configuration => {
     module: {
       rules: [jsRule, cssRule]
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: path.join(PATH_ROOT, "assets", "index.html")
-      }),
-      new CopyWebpackPlugin([
-        {
-          from: path.join(PATH_ROOT, "assets", "fonts"),
-          to: path.join(PATH_ROOT, "dist", "assets", "fonts")
-        }
-      ])
-    ],
+    plugins: createWebpackPluginsArray(env),
+    optimization: {
+      minimize: env.NODE_ENV === "production" ? true : false,
+      splitChunks: {
+        chunks: "initial",
+        cacheGroups: {
+          vendors: false,
+          default: false
+        } as any
+      }
+    },
     devServer: {
       compress: true,
       contentBase: PATH_SRC,
