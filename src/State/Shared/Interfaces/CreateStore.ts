@@ -1,11 +1,11 @@
 import { BehaviorSubject } from "rxjs";
 
 import Stores from "../Constants/Stores";
-import INewable from "./INewable";
+import Newable from "./Newable";
 
-interface ICreateStore<Model, Actions> {
+interface CreateStore<Model, Actions> {
   name: Stores;
-  model: INewable<Model>;
+  model: Newable<Model, unknown>;
   actions: (
     observable: BehaviorSubject<Model>,
     getState: () => Model
@@ -13,4 +13,4 @@ interface ICreateStore<Model, Actions> {
   initialState?: Model;
 }
 
-export default ICreateStore;
+export default CreateStore;

@@ -10,9 +10,6 @@ const config = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-//   ecmaFeatures: {
-//     jsx: true
-//   },
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off"
   },

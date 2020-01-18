@@ -1,5 +1,5 @@
 enum Stores {
-    TODO = "TODO"
+  TODO = "TODO"
 }
 
-export default Stores
+export default Stores;

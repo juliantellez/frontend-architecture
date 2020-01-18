@@ -1,8 +1,8 @@
-import ITodo from "../Interfaces/ITodo";
-import ITodoItem from "../Interfaces/ITodoItem";
+import Todos from "../Interfaces/Todos";
+import TodoItem from "../Interfaces/TodoItem";
 
-class Todo implements ITodo {
-  public todoList: ITodoItem[] = [];
+class TodosModel implements Todos {
+  public todoList: TodoItem[] = [];
 
   public get hasTodos() {
     return Boolean(this.todoList.length);
@@ -19,4 +19,4 @@ class Todo implements ITodo {
   }
 }
 
-export default Todo;
+export default TodosModel;

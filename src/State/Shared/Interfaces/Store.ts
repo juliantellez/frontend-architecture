@@ -1,14 +1,14 @@
 import { BehaviorSubject } from "rxjs";
 
 import Stores from "../Constants/Stores";
-import INewable from "./INewable";
+import Newable from "./Newable";
 
-interface IStore<Model, Actions> {
+interface Store<Model, Actions> {
   name: Stores;
-  model: INewable<Model>;
+  model: Newable<Model, unknown>;
   getState: () => Model;
   observable: BehaviorSubject<Model>;
-  actions: Actions
+  actions: Actions;
 }
 
-export default IStore;
+export default Store;

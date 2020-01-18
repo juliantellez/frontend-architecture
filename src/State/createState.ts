@@ -1,16 +1,16 @@
 import createStore from "./Shared/createStore";
 import Stores from "./Shared/Constants/Stores";
 
-import Todo from "./Stores/Todo/Models/Todo";
+import TodosModel from "./Stores/Todo/Models/Todos";
 import createTodoActions from "./Stores/Todo/Actions/createTodoActions";
-import IState from "./Shared/Interfaces/IState";
+import State from "./Shared/Interfaces/State";
 
 const createState = () => {
-  const state: IState = {
+  const state: State = {
     [Stores.TODO]: createStore({
-      model: Todo,
+      model: TodosModel,
       name: Stores.TODO,
-      actions: createTodoActions,
+      actions: createTodoActions
     })
   };
 

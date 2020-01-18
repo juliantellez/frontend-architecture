@@ -1,9 +1,9 @@
 import TodoItemStatus from "../Constants/TodoItemStatus";
 
-interface ITodoItem {
+interface TodoItem {
   id: string;
   content: string;
   status: TodoItemStatus;
 }
 
-export default ITodoItem;
+export default TodoItem;

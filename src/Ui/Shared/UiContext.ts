@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import createUiEvent from "./Streams/createUiEvent";
-import IUiContext from "./Interfaces/IUiContext";
+import UiReactContext from "./Interfaces/UiReactContext";
 
-const context: IUiContext = {
+const context: UiReactContext = {
   uiEvent$: createUiEvent()
 };
 

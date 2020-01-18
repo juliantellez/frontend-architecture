@@ -1,29 +1,31 @@
 import { BehaviorSubject } from "rxjs";
 
-import Todo from "../Models/Todo";
-import ITodoActions from "../Interfaces/ITodoActions";
-import ITodoItem from "../Interfaces/ITodoItem";
+import TodoModel from "../Models/Todos";
+import TodoActions from "../Interfaces/TodoActions";
+import TodoItem from "../Interfaces/TodoItem";
 
 const createTodoActions = (
-  todo$: BehaviorSubject<Todo>,
-  getState: () => Todo
-): ITodoActions => ({
-  addTodo(todo: ITodoItem) {
+  todo$: BehaviorSubject<TodoModel>,
+  getState: () => TodoModel
+): TodoActions => ({
+  addTodo(todo: TodoItem) {
     const state = getState();
     state.todoList.push(todo);
 
-    todo$.next(Object.assign(new Todo(), state));
+    todo$.next(Object.assign(new TodoModel(), state));
 
     return todo;
   },
 
-  removeTodo(currentTodo: ITodoItem) {
+  removeTodo(currentTodo: TodoItem) {
     const state = getState();
 
     const index = state.todoList.findIndex(todo => todo.id === currentTodo.id);
-    state.todoList.splice(index, 1);
 
-    todo$.next(Object.assign(new Todo(), state));
+    const DELETE_COUNT = 1;
+    state.todoList.splice(index, DELETE_COUNT);
+
+    todo$.next(Object.assign(new TodoModel(), state));
 
     return currentTodo;
   }

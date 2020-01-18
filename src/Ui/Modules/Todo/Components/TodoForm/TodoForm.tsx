@@ -22,7 +22,7 @@ const TodoForm = () => {
         });
       }}
     >
-      <label>What's on your mind?</label>
+      <label>What&apos;s on your mind?</label>
       <input
         type="text"
         value={todo}
