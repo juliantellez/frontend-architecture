@@ -1,6 +1,6 @@
 enum RoutePath {
-  TODO = "/todo",
-  HOME = "/"
+    TODO = "/todo",
+    HOME = "/"
 }
 
 export default RoutePath;

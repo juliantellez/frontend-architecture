@@ -9,23 +9,23 @@ import UIEventCustom from "../../../Ui/Shared/Constants/UIEventCustom";
 import TodoItemStatus from "./Constants/TodoItemStatus";
 
 const connectTodoSubscriptions = (
-  state: State,
-  ui: UiReactContext
+    state: State,
+    ui: UiReactContext
 ): Subscription[] => {
-  return [
-    ui.uiEvent$
-      .pipe(
-        filter(({ type }) => type === UIEventCustom.TODO_SUBMIT),
-        filter(({ event }) => Boolean(event.todo))
-      )
-      .subscribe(({ event }) => {
-        state.TODO.actions.addTodo({
-          id: uuid.v4(),
-          content: event.todo,
-          status: TodoItemStatus.OPEN
-        });
-      })
-  ];
+    return [
+        ui.uiEvent$
+            .pipe(
+                filter(({ type }) => type === UIEventCustom.TODO_SUBMIT),
+                filter(({ event }) => Boolean(event.todo))
+            )
+            .subscribe(({ event }) => {
+                state.TODO.actions.addTodo({
+                    id: uuid.v4(),
+                    content: event.todo,
+                    status: TodoItemStatus.OPEN
+                });
+            })
+    ];
 };
 
 export default connectTodoSubscriptions;

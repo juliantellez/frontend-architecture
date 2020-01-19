@@ -8,18 +8,18 @@ import UiContext from "./Shared/UiContext";
 import Routes from "./Routes";
 
 const App = () => {
-  const state = React.useContext(StateContext);
-  const ui = React.useContext(UiContext);
+    const state = React.useContext(StateContext);
+    const ui = React.useContext(UiContext);
 
-  React.useEffect(() => {
-    connectSubscriptions(state, ui);
-  });
+    React.useEffect(() => {
+        connectSubscriptions(state, ui);
+    });
 
-  return (
-    <Router>
-      <Routes />
-    </Router>
-  );
+    return (
+        <Router>
+            <Routes />
+        </Router>
+    );
 };
 
 const container = document.getElementById("main");

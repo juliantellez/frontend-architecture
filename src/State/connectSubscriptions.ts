@@ -6,10 +6,10 @@ import connectTodoSubscriptions from "./Stores/Todo/connectTodoSubscriptions";
 import UiReactContext from "../Ui/Shared/Interfaces/UiReactContext";
 
 const connectSubscriptions = (
-  state: State,
-  ui: UiReactContext
+    state: State,
+    ui: UiReactContext
 ): Subscription[] => {
-  return [...connectTodoSubscriptions(state, ui)];
+    return [...connectTodoSubscriptions(state, ui)];
 };
 
 export default connectSubscriptions;

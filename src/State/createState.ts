@@ -6,15 +6,15 @@ import createTodoActions from "./Stores/Todo/Actions/createTodoActions";
 import State from "./Shared/Interfaces/State";
 
 const createState = () => {
-  const state: State = {
-    [Stores.TODO]: createStore({
-      model: TodosModel,
-      name: Stores.TODO,
-      actions: createTodoActions
-    })
-  };
+    const state: State = {
+        [Stores.TODO]: createStore({
+            model: TodosModel,
+            name: Stores.TODO,
+            actions: createTodoActions
+        })
+    };
 
-  return state;
+    return state;
 };
 
 export default createState;

@@ -4,7 +4,7 @@ import createUiEvent from "./Streams/createUiEvent";
 import UiReactContext from "./Interfaces/UiReactContext";
 
 const context: UiReactContext = {
-  uiEvent$: createUiEvent()
+    uiEvent$: createUiEvent()
 };
 
 const UiContext = React.createContext(context);

@@ -4,12 +4,12 @@ import TodoForm from "../TodoForm";
 import TodoList from "../TodoList";
 
 const TodoView = () => {
-  return (
-    <main>
-      <TodoForm />
-      <TodoList />
-    </main>
-  );
+    return (
+        <main>
+            <TodoForm />
+            <TodoList />
+        </main>
+    );
 };
 
 export default TodoView;

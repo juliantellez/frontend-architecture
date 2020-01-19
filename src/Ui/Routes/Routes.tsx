@@ -7,10 +7,10 @@ import Todo from "../Modules/Todo";
 import Home from "../Modules/Home";
 
 const Routes = () => (
-  <Switch>
-    <Route path={RoutePath.TODO} component={Todo} />
-    <Route component={Home} />
-  </Switch>
+    <Switch>
+        <Route path={RoutePath.TODO} component={Todo} />
+        <Route component={Home} />
+    </Switch>
 );
 
 export default Routes;
