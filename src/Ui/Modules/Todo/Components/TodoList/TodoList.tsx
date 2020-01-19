@@ -3,21 +3,24 @@ import * as React from "react";
 import useObservable from "../../../../../State/Shared/Hooks/useObservable";
 import StateContext from "../../../../../State/Shared/StateContext";
 
+import * as styles from "./TodoList.scss";
+
 const TodoList = (): JSX.Element => {
     const { TODO } = React.useContext(StateContext);
     const currentValue = useObservable(TODO.observable, TODO.getState());
 
     return (
-        <div>
-            <div>
-                {currentValue.todosList.map((todo, key) => (
-                    <div key={key}>
-                        <div>ID: {todo.id}</div>
-                        <div>Content: {todo.content}</div>
-                        <div>Status: {todo.status}</div>
+        <div className={styles.container}>
+            {currentValue.todosList.map((todo, key) => (
+                <div className={styles.item} key={key}>
+                    <div className={styles.itemContent}>
+                        Content: {todo.content}
                     </div>
-                ))}
-            </div>
+                    <div className={styles.itemStatus}>
+                        Status: {todo.status}
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };
