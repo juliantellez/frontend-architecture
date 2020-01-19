@@ -5,7 +5,11 @@ function useObservable<T>(observable: Observable<T>, initialValue: T): T {
     const [currentValue, setValue] = useState(initialValue);
 
     useEffect(() => {
-        observable.subscribe(setValue);
+        const subscription = observable.subscribe(setValue);
+
+        return (): void => {
+            subscription.unsubscribe();
+        };
     });
 
     return currentValue;

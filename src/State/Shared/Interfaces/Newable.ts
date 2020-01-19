@@ -2,6 +2,6 @@
  * Utility to allow object to be constructed
  * e.g. new Model()
  */
-type Newable<T, U> = new (...args: U[]) => T;
+type Newable<T> = new () => T;
 
 export default Newable;

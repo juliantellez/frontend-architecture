@@ -1,15 +1,17 @@
+import { Subject } from "rxjs";
 import * as React from "react";
 
 import UiContext from "../../../../Shared/UiContext";
+import UiEvent from "../../../../Shared/Interfaces/UiEvent";
 import UIEventCustom from "../../../../Shared/Constants/UIEventCustom";
 
 import * as styles from "./TodoForm.scss";
 
-const TodoForm = (): JSX.Element => {
-    const { uiEvent$ } = React.useContext(UiContext);
-    const [todo, updateTodo] = React.useState("");
-
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+function onSubmit(
+    uiEvent$: Subject<UiEvent>,
+    todo: string
+): ((event: React.FormEvent<HTMLFormElement>) => void) | undefined {
+    return (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
         uiEvent$.next({
             type: UIEventCustom.TODO_SUBMIT,
@@ -18,9 +20,14 @@ const TodoForm = (): JSX.Element => {
             }
         });
     };
+}
+
+const TodoForm = (): JSX.Element => {
+    const { uiEvent$ } = React.useContext(UiContext);
+    const [todo, updateTodo] = React.useState("");
 
     return (
-        <form className={styles.form} onSubmit={onSubmit}>
+        <form className={styles.form} onSubmit={onSubmit(uiEvent$, todo)}>
             <textarea
                 placeholder="What's on your mind?"
                 className={styles.formInput}

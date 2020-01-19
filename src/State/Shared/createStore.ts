@@ -2,25 +2,29 @@ import { BehaviorSubject } from "rxjs";
 
 import CreateStore from "./Interfaces/CreateStore";
 import Store from "./Interfaces/Store";
+import createProxy from "./createProxy";
 
-const createStore = <Model, Actions>({
+const createStore = <Model, Actions, StoreName>({
     name,
     model,
     actions,
-    initialState = new model()
-}: CreateStore<Model, Actions>): Store<Model, Actions> => {
-    const observable = new BehaviorSubject(initialState);
+    initialState = new model(),
+    observable = new BehaviorSubject(initialState)
+}: CreateStore<Model, Actions, StoreName>): Store<
+    Model,
+    Actions,
+    StoreName
+> => {
+    const state = createProxy(initialState, model, observable);
 
-    let currentState = initialState;
-
-    observable.subscribe(nextState => (currentState = nextState));
-    const getState = (): Model => Object.assign(new model(), currentState);
+    const getInternalState = (): Model => state;
+    const getState = (): Model => Object.assign(new model(), state);
 
     return {
         name,
         getState,
         observable,
-        actions: actions(observable, getState)
+        actions: actions(getInternalState)
     };
 };
 

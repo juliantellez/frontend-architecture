@@ -12,7 +12,13 @@ const App = (): JSX.Element => {
     const ui = React.useContext(UiContext);
 
     React.useEffect(() => {
-        connectSubscriptions(state, ui);
+        const subscriptions = connectSubscriptions(state, ui);
+
+        return (): void => {
+            subscriptions.forEach(subscription => {
+                subscription.unsubscribe();
+            });
+        };
     });
 
     return (

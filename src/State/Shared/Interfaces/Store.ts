@@ -1,11 +1,9 @@
-import { BehaviorSubject } from "rxjs";
+import { Observable } from "rxjs";
 
-import Stores from "../Constants/Stores";
-
-interface Store<Model, Actions> {
-    name: Stores;
+interface Store<Model, Actions, StoreName> {
+    name: StoreName;
     getState: () => Model;
-    observable: BehaviorSubject<Model>;
+    observable: Observable<Model>;
     actions: Actions;
 }
 
