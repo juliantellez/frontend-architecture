@@ -9,26 +9,25 @@ const TodoForm = (): JSX.Element => {
     const { uiEvent$ } = React.useContext(UiContext);
     const [todo, updateTodo] = React.useState("");
 
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+        event.preventDefault();
+        uiEvent$.next({
+            type: UIEventCustom.TODO_SUBMIT,
+            data: {
+                todo
+            }
+        });
+    };
+
     return (
-        <form
-            className={styles.main}
-            onSubmit={(event): void => {
-                event.preventDefault();
-                uiEvent$.next({
-                    type: UIEventCustom.TODO_SUBMIT,
-                    data: {
-                        todo
-                    }
-                });
-            }}
-        >
-            <label>What&apos;s on your mind?</label>
-            <input
-                type="text"
+        <form className={styles.form} onSubmit={onSubmit}>
+            <textarea
+                placeholder="What's on your mind?"
+                className={styles.formInput}
                 value={todo}
                 onChange={(e): void => updateTodo(e.target.value)}
             />
-            <input type="submit" value="Submit" />
+            <button className={styles.formSubmit}>Add Task</button>
         </form>
     );
 };

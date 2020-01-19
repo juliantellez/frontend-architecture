@@ -1,4 +1,57 @@
-.main {
+.formContainer {
+    padding: 10px;
+}
+
+.form {
     padding: 10px;
     border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formTitle {
+    font-size: 30px;
+    padding: 20px
+}
+
+.formInput {
+    border-radius: 5px;
+    font-size: 2em;
+    font-weight: bold;
+    height: 90px;
+    width: 100%;
+    max-width: 360px;
+    margin: 5px;
+    padding: 10px;
+    resize: none;
+    border: none;
+
+    &:hover, &:focus {
+        outline: none;
+        background-color: #f7f5f5;
+        transition: ease-in-out;
+    }
+}
+
+.formSubmit {
+    width: 100%;
+    max-width: 360px;
+    height: 40px;
+    font-size: 1em;
+    background-color: transparent;
+    border: 1px solid #ccbebe;
+    border-radius: 2px;
+
+    &:hover {
+        background-color: #e9faff;
+        transition: ease-in-out;
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
