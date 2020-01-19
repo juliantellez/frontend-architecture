@@ -2,10 +2,10 @@ import { Subscription } from "rxjs";
 import { filter } from "rxjs/operators";
 import * as uuid from "uuid";
 
-import UiReactContext from "../../../Ui/Shared/Interfaces/UiReactContext";
+import UiReactContext from "../../../Shared/Interfaces/UiReactContext";
 
-import State from "../../Shared/Interfaces/State";
-import UIEventCustom from "../../../Ui/Shared/Constants/UIEventCustom";
+import State from "../../../../State/Shared/Interfaces/State";
+import UIEventCustom from "../../../Shared/Constants/UIEventCustom";
 import TodoItemStatus from "./Constants/TodoItemStatus";
 
 const connectTodoSubscriptions = (

@@ -10,7 +10,7 @@ const TodoList = (): JSX.Element => {
     return (
         <div>
             <div>
-                {currentValue.todoList.map((todo, key) => (
+                {currentValue.todosList.map((todo, key) => (
                     <div key={key}>
                         <div>ID: {todo.id}</div>
                         <div>Content: {todo.content}</div>

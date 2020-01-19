@@ -1,5 +1,5 @@
-import TodoModel from "../../Stores/Todo/Models/Todos";
-import TodoActions from "../../Stores/Todo/Interfaces/TodoActions";
+import TodoModel from "../../../Ui/Modules/Todo/State/Models/Todos";
+import TodoActions from "../../../Ui/Modules/Todo/State/Interfaces/TodoActions";
 
 import Store from "./Store";
 

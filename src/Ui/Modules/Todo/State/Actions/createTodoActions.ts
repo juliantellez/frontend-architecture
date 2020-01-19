@@ -10,7 +10,7 @@ const createTodoActions = (
 ): TodoActions => ({
     addTodo(todo: TodoItem): TodoItem {
         const state = getState();
-        state.todoList.push(todo);
+        state.todosList.push(todo);
 
         todo$.next(Object.assign(new TodoModel(), state));
 
@@ -20,12 +20,12 @@ const createTodoActions = (
     removeTodo(currentTodo: TodoItem): TodoItem {
         const state = getState();
 
-        const index = state.todoList.findIndex(
+        const index = state.todosList.findIndex(
             todo => todo.id === currentTodo.id
         );
 
         const DELETE_COUNT = 1;
-        state.todoList.splice(index, DELETE_COUNT);
+        state.todosList.splice(index, DELETE_COUNT);
 
         todo$.next(Object.assign(new TodoModel(), state));
 

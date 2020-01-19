@@ -1,7 +1,7 @@
 import TodoItem from "./TodoItem";
 
 interface Todos {
-    todoList: TodoItem[];
+    todosList: TodoItem[];
 }
 
 export default Todos;
