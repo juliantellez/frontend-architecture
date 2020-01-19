@@ -18,7 +18,6 @@ const createStore = <Model, Actions>({
 
     return {
         name,
-        model,
         getState,
         observable,
         actions: actions(observable, getState)
