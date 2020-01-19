@@ -16,12 +16,12 @@ const connectTodoSubscriptions = (
         ui.uiEvent$
             .pipe(
                 filter(({ type }) => type === UIEventCustom.TODO_SUBMIT),
-                filter(({ event }) => Boolean(event.todo))
+                filter(({ data }) => Boolean(data.todo))
             )
-            .subscribe(({ event }) => {
+            .subscribe(({ data }) => {
                 state.TODO.actions.addTodo({
                     id: uuid.v4(),
-                    content: event.todo,
+                    content: data.todo,
                     status: TodoItemStatus.OPEN
                 });
             })

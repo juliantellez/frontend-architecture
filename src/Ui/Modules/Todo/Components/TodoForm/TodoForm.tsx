@@ -5,18 +5,18 @@ import UIEventCustom from "../../../../Shared/Constants/UIEventCustom";
 
 import * as styles from "./TodoForm.scss";
 
-const TodoForm = () => {
+const TodoForm = (): JSX.Element => {
     const { uiEvent$ } = React.useContext(UiContext);
     const [todo, updateTodo] = React.useState("");
 
     return (
         <form
             className={styles.main}
-            onSubmit={event => {
+            onSubmit={(event): void => {
                 event.preventDefault();
                 uiEvent$.next({
                     type: UIEventCustom.TODO_SUBMIT,
-                    event: {
+                    data: {
                         todo
                     }
                 });
@@ -26,7 +26,7 @@ const TodoForm = () => {
             <input
                 type="text"
                 value={todo}
-                onChange={e => updateTodo(e.target.value)}
+                onChange={(e): void => updateTodo(e.target.value)}
             />
             <input type="submit" value="Submit" />
         </form>

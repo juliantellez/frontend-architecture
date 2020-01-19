@@ -6,7 +6,7 @@ import RoutePath from "./Constants/RoutePath";
 import Todo from "../Modules/Todo";
 import Home from "../Modules/Home";
 
-const Routes = () => (
+const Routes = (): JSX.Element => (
     <Switch>
         <Route path={RoutePath.TODO} component={Todo} />
         <Route component={Home} />

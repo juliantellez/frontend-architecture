@@ -14,7 +14,7 @@ const createStore = <Model, Actions>({
     let currentState = initialState;
 
     observable.subscribe(nextState => (currentState = nextState));
-    const getState = () => Object.assign(new model(), currentState);
+    const getState = (): Model => Object.assign(new model(), currentState);
 
     return {
         name,

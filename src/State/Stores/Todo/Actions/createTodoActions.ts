@@ -8,7 +8,7 @@ const createTodoActions = (
     todo$: BehaviorSubject<TodoModel>,
     getState: () => TodoModel
 ): TodoActions => ({
-    addTodo(todo: TodoItem) {
+    addTodo(todo: TodoItem): TodoItem {
         const state = getState();
         state.todoList.push(todo);
 
@@ -17,7 +17,7 @@ const createTodoActions = (
         return todo;
     },
 
-    removeTodo(currentTodo: TodoItem) {
+    removeTodo(currentTodo: TodoItem): TodoItem {
         const state = getState();
 
         const index = state.todoList.findIndex(

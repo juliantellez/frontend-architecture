@@ -7,7 +7,7 @@ import StateContext from "../State/Shared/StateContext";
 import UiContext from "./Shared/UiContext";
 import Routes from "./Routes";
 
-const App = () => {
+const App = (): JSX.Element => {
     const state = React.useContext(StateContext);
     const ui = React.useContext(UiContext);
 

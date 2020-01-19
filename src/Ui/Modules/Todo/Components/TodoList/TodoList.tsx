@@ -3,7 +3,7 @@ import * as React from "react";
 import useObservable from "../../../../../State/Shared/Hooks/useObservable";
 import StateContext from "../../../../../State/Shared/StateContext";
 
-const TodoList = () => {
+const TodoList = (): JSX.Element => {
     const { TODO } = React.useContext(StateContext);
     const currentValue = useObservable(TODO.observable, TODO.getState());
 

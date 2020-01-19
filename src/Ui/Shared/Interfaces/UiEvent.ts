@@ -1,8 +1,12 @@
 import UIEventCustom from "../Constants/UIEventCustom";
 
-interface UiEvent<T> {
+interface UiEventData {
+    [key: string]: string;
+}
+
+interface UiEvent {
     type: UIEventCustom;
-    event?: T;
+    data: UiEventData;
 }
 
 export default UiEvent;

@@ -5,7 +5,7 @@ import TodosModel from "./Stores/Todo/Models/Todos";
 import createTodoActions from "./Stores/Todo/Actions/createTodoActions";
 import State from "./Shared/Interfaces/State";
 
-const createState = () => {
+const createState = (): State => {
     const state: State = {
         [Stores.TODO]: createStore({
             model: TodosModel,

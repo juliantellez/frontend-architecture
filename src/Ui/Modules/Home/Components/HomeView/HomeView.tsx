@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const HomeView = () => {
+const HomeView = (): JSX.Element => {
     return <main>Home</main>;
 };
 
