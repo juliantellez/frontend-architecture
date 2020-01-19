@@ -2,8 +2,8 @@ import * as uuid from "uuid";
 import { Subscription, Observable } from "rxjs";
 
 import TodoItemStatus from "../Constants/TodoItemStatus";
-import State from "../../../../../State/Shared/Interfaces/State";
 import UiEvent from "../../../../Shared/Interfaces/UiEvent";
+import State from "../../../../../State/Shared/Interfaces/State";
 
 /**
  * Subscribe to UIEventCustom.TODO_SUBMIT

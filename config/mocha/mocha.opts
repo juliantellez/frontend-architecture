@@ -1,0 +1,10 @@
+--require ts-node/register/transpile-only
+--require tsconfig-paths/register
+--require mock-css-modules
+--require jsdom-global/register
+--require mock-local-storage
+--recursive
+--watch-extensions ts,tsx
+--exit
+
+src/**/*.test.{ts,tsx}
